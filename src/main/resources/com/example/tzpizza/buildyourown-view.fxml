@@ -1,10 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.tzpizza.BuildYourOwnController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<VBox alignment="TOP_CENTER" prefWidth="349.0" style="-fx-background-color: GRAY;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tzpizza.MainMenuController">
+   <children>
+      <HBox alignment="CENTER" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="120.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@PizzaIcon.png" />
+               </image>
+            </ImageView>
+            <Label text="T &amp; Z's Pizza" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="34.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+         <children>
+            <Label text="Build Your Own Pizza">
+               <font>
+                  <Font name="Comic Sans MS" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@build.png" />
+               </image>
+            </ImageView>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="Size:" />
+                  <RadioButton mnemonicParsing="false" text="Small">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Size" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Medium" toggleGroup="$Size" />
+                  <RadioButton mnemonicParsing="false" text="Large" toggleGroup="$Size" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="Sauce:" />
+                  <RadioButton mnemonicParsing="false" text="Tomato">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Size1" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Alfredo">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Size1" />
+                     </toggleGroup>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <VBox alignment="TOP_CENTER">
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Toppings:" />
+                        <ListView fx:id="toppings" />
+                     </children>
+                  </HBox>
+                  <Label text="Minimum 3 Toppings" />
+                  <Label text="Maximum 7 Toppings" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
 </VBox>
