@@ -16,4 +16,3 @@ public class Pepperoni extends Pizza{
         return super.priceHelper(price);
     }
 }
-s
