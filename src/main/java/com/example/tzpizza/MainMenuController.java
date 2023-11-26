@@ -5,10 +5,15 @@ import javafx.scene.control.Label;
 
 public class MainMenuController {
     @FXML
-    private Label welcomeText;
-
+    protected void onBuildYourOwnButtonClick() {
+    }
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void onSpecialtyButtonClick() {
+    }
+    @FXML
+    protected void onCurrentOrderButtonClick() {
+    }
+    @FXML
+    protected void onAllOrdersClick() {
     }
 }
