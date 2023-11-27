@@ -8,7 +8,7 @@ public class Order {
     private double subtotal;
     private double NJStateTax;
     private double total;
-    private double NJTaxRate = 0.06625;
+    private static double NJTaxRate = 0.06625;
     public Order(int orderNumber) {
         this.orderNumber = orderNumber;
         pizzas = new ArrayList<Pizza>();
@@ -37,22 +37,7 @@ public class Order {
     public ArrayList<String> getPizzaStringList() {
         ArrayList<String> output = new ArrayList<String >();
         for(Pizza pizza: pizzas) {
-            String pizzaType = "BuildYourOwn";
-            if(pizza instanceof Deluxe) {
-                pizzaType = "Deluxe";
-            }
-            else if(pizza instanceof Supreme) {
-                pizzaType = "Supreme";
-            }
-            else if(pizza instanceof Meatzza) {
-                pizzaType = "Meatzza";
-            }
-            else if(pizza instanceof Seafood) {
-                pizzaType = "Seafood";
-            }
-            else if(pizza instanceof Pepperoni) {
-                pizzaType = "Pepperoni";
-            }
+            String pizzaType = getTypeString(pizza);
             StringBuilder toppings = new StringBuilder();
             for(Topping topping: pizza.getToppings()) {
                 toppings.append(topping.getName()).append(',');
@@ -70,6 +55,25 @@ public class Order {
             output.add("[" + size + " " + pizzaType + "] " + toppings + "$" + String.format("%.2f", pizza.price()));
         }
         return output;
+    }
+    private static String getTypeString(Pizza pizza) {
+        String pizzaType = "BuildYourOwn";
+        if(pizza instanceof Deluxe) {
+            pizzaType = "Deluxe";
+        }
+        else if(pizza instanceof Supreme) {
+            pizzaType = "Supreme";
+        }
+        else if(pizza instanceof Meatzza) {
+            pizzaType = "Meatzza";
+        }
+        else if(pizza instanceof Seafood) {
+            pizzaType = "Seafood";
+        }
+        else if(pizza instanceof Pepperoni) {
+            pizzaType = "Pepperoni";
+        }
+        return pizzaType;
     }
     public double getSubtotal() {
         return subtotal;
