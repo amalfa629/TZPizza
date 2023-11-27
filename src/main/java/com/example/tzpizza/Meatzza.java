@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- creates a meatzza subclass of the abstract pizza class
+ a meatzza subclass of the abstract pizza class
  @author Tyler Amalfa, Zafar Khan
  */
 public class Meatzza extends Pizza{

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- Seafood class that is a subclass of the abstract pizza class
+ a seafood subclass of the abstract pizza class
  @author Tyler Amalfa, Zafar Khan
  */
 public class Seafood extends Pizza{

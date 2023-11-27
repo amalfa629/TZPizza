@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- creates a pepperoni subclass for the abstract pizza class
+ a pepperoni subclass for the abstract pizza class
  @author Tyler Amalfa, Zafar Khan
  */
 public class Pepperoni extends Pizza{

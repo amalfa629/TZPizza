@@ -3,7 +3,7 @@ package com.example.tzpizza;
 import java.util.ArrayList;
 
 /**
- creates a build your own pizza subclass of the abstract pizza class
+ a build your own pizza subclass of the abstract pizza class
  @author Tyler Amalfa, Zafar Khan
  */
 public class BuildYourOwn extends Pizza{

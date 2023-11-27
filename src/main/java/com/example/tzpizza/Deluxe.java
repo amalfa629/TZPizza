@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- creates a deluxe subclass of the abstract pizza class
+ a deluxe subclass of the abstract pizza class
  @author Tyler Amalfa, Zafar Khan
  */
 public class Deluxe extends Pizza{
