@@ -38,7 +38,7 @@ public class SpecialtyPizzaController implements Initializable {
     }
     private void setPrice() {
         if((((RadioButton) sizes.getSelectedToggle()) != null) && (typePizza.getValue() != null)) {
-            priceField.setText(String.format("%.2f", makePizza().price()));
+            priceField.setText("$" + String.format("%.2f", makePizza().price()));
         }
     }
     @FXML

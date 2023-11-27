@@ -19,4 +19,16 @@ public abstract class Pizza {
     public ArrayList<Topping> getToppings() {
         return toppings;
     }
+    public Size getSize() {
+        return size;
+    }
+    public Sauce getSauce() {
+        return sauce;
+    }
+    public boolean isExtraSauce() {
+        return extraSauce;
+    }
+    public boolean isExtraCheese() {
+        return extraSauce;
+    }
 }

@@ -23,6 +23,15 @@ public class MainMenuController implements Initializable {
     public int getCurrentOrderNumber() {
         return storeOrders.getCurrentOrderNumber();
     }
+    public Order getOrder(int orderNumber) {
+        return storeOrders.getOrder(orderNumber);
+    }
+    public void placeOrder() {
+        storeOrders.newOrder();
+    }
+    public void export() {
+        storeOrders.export();
+    }
     @FXML
     protected void onBuildYourOwnButtonClick() throws IOException {
         Stage buildYourOwnStage = new Stage();

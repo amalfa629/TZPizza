@@ -46,7 +46,7 @@ public class BuildYourOwnController implements Initializable {
     }
     private void setPrice() {
         if((((RadioButton) sizes.getSelectedToggle()) != null) && (((RadioButton) sauces.getSelectedToggle()) != null) && (selectedToppings.getItems().size() >= 3)) {
-            priceField.setText(String.format("%.2f", makePizza().price()));
+            priceField.setText("$" + String.format("%.2f", makePizza().price()));
         }
     }
     @FXML
