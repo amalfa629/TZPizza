@@ -33,6 +33,9 @@ public class StoreOrders {
     public Order getOrder(int orderNumber) {
         return orders.get(orderNumber - 1);
     }
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
     public void export() {
         try {
             FileWriter output = new FileWriter("src/main/resources/com/tzpizza/orders.txt");

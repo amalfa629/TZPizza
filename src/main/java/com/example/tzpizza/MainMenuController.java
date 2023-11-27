@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MainMenuController implements Initializable {
@@ -26,8 +27,14 @@ public class MainMenuController implements Initializable {
     public Order getOrder(int orderNumber) {
         return storeOrders.getOrder(orderNumber);
     }
+    public ArrayList<Order> getOrders() {
+        return storeOrders.getOrders();
+    }
     public void placeOrder() {
         storeOrders.newOrder();
+    }
+    public void cancelOrder(int orderNumber) {
+        storeOrders.cancelOrder(orderNumber);
     }
     public void export() {
         storeOrders.export();
