@@ -5,13 +5,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SpecialtyPizzaController implements Initializable {
     private MainMenuController mainMenuController;
+    @FXML
+    private ImageView pizzaImage;
     @FXML
     private ToggleGroup sizes;
     @FXML
@@ -47,10 +52,12 @@ public class SpecialtyPizzaController implements Initializable {
     }
     @FXML
     protected void onTypePizzaButtonClick() {
+        String pizza = typePizza.getValue();
         toppings.getItems().clear();
-        for(Topping t: PizzaMaker.createPizza(typePizza.getValue() + ",SMALL,true,true").getToppings()) {
+        for(Topping t: PizzaMaker.createPizza(pizza + ",SMALL,true,true").getToppings()) {
             toppings.getItems().add(t.getName());
         }
+        pizzaImage.setImage(new Image((new File("src/main/resources/com/example/tzpizza/" + pizza + ".png")).toURI().toString()));
         setPrice();
     }
     @FXML

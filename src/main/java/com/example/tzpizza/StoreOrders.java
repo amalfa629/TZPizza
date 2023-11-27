@@ -46,7 +46,7 @@ public class StoreOrders {
     }
     public void export() {
         try {
-            FileWriter output = new FileWriter("src/main/resources/com/tzpizza/orders.txt");
+            FileWriter output = new FileWriter("src/main/resources/com/example/tzpizza/orders.txt");
             for (Order o : orders) {
                 output.write("Order #" + o.getOrderNumber() + "\n");
                 for(String pizza: o.getPizzaStringList()) {
