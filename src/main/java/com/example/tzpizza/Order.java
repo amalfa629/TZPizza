@@ -24,6 +24,9 @@ public class Order {
     }
     public void removePizza(Pizza pizza) {
         pizzas.remove(pizza);
+        subtotal -= pizza.price();
+        NJStateTax = NJTaxRate*subtotal;
+        total = subtotal + NJStateTax;
     }
     public int getOrderNumber() {
         return orderNumber;

@@ -1,7 +1,10 @@
 package com.example.tzpizza;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
+import java.util.ArrayList;
 
 public class StoreOrdersController {
     private MainMenuController mainMenuController;
@@ -13,40 +16,45 @@ public class StoreOrdersController {
     private TextField total;
     public void setMainMenuController(MainMenuController mainMenuController) {
         this.mainMenuController = mainMenuController;
-        displayOrder(1);
+        displayOrders();
     }
-    public void displayOrder(int orderNum) {
-        Order order = mainMenuController.getOrder(orderNum);
-        orderNumber = new ComboBox<Integer>();
+    public void displayOrders() {
+        orderNumber.getItems().clear();
         pizzaList.getItems().clear();
-        for(Order o: mainMenuController.getOrders()) {
-            int currentNumber = o.getOrderNumber();
-            if(mainMenuController.getCurrentOrderNumber() != currentNumber) orderNumber.getItems().add(currentNumber);
-            System.out.println(currentNumber);
-        }
-        if(mainMenuController.getCurrentOrderNumber() == orderNum) orderNum--;
-        if(orderNum <= 0) {
+        total.clear();
+        if(mainMenuController.getOrders().size() <= 1) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Orders Placed");
             alert.setHeaderText("Please place an order!");
             alert.showAndWait();
         }
         else {
-            orderNumber.getSelectionModel().select(orderNumber.getItems().indexOf(orderNum));
-            for (String pizza : order.getPizzaStringList()) {
-                pizzaList.getItems().add(pizza);
+            ArrayList<Integer> orderNums = new ArrayList<Integer>();
+            for (Order o : mainMenuController.getOrders()) {
+                int currentNumber = o.getOrderNumber();
+                if (mainMenuController.getCurrentOrderNumber() != currentNumber) orderNums.add(currentNumber);
             }
-            total.setText("$" + String.format("%.2f", order.getTotal()));
+            orderNumber.setItems(FXCollections.observableArrayList(orderNums));
         }
+    }
+    public void displayOrder(int orderNum) {
+        pizzaList.getItems().clear();
+        Order order = mainMenuController.getOrder(orderNum);
+        for (String pizza: order.getPizzaStringList()) {
+            pizzaList.getItems().add(pizza);
+        }
+        total.setText("$" + String.format("%.2f", order.getTotal()));
     }
     @FXML
     protected void onOrderNumberButtonClicked() {
-        displayOrder(orderNumber.getValue());
+        if(orderNumber.getValue() != null) displayOrder(orderNumber.getValue());
     }
     @FXML
     protected void onCancelButtonClicked() {
-        mainMenuController.cancelOrder(orderNumber.getValue());
-        displayOrder(orderNumber.getValue() - 1);
+        if(orderNumber.getValue() != null) {
+            mainMenuController.cancelOrder(orderNumber.getValue());
+            displayOrders();
+        }
     }
     @FXML
     protected void onExportButtonClicked() {

@@ -25,13 +25,21 @@ public class StoreOrders {
         orders.remove(index);
     }
     public void addPizza(Pizza pizza) {
-        orders.get(currentOrderNumber-1).addPizza(pizza);
+        int index = -1;
+        for(Order o: orders) {
+            if(o.getOrderNumber() == currentOrderNumber) index = orders.indexOf(o);
+        }
+        orders.get(index).addPizza(pizza);
     }
     public int getCurrentOrderNumber() {
         return currentOrderNumber;
     }
     public Order getOrder(int orderNumber) {
-        return orders.get(orderNumber - 1);
+        int index = -1;
+        for(Order o: orders) {
+            if(o.getOrderNumber() == orderNumber) index = orders.indexOf(o);
+        }
+        return orders.get(index);
     }
     public ArrayList<Order> getOrders() {
         return orders;
