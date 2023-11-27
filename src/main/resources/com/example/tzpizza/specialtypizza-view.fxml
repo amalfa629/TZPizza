@@ -38,9 +38,9 @@
                         <Font name="Comic Sans MS" size="20.0" />
                     </font>
                 </Label>
-                <ImageView fx:id="pizzaImage" fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="pizzaImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@build.png" />
+                        <Image url="@specials.png" />
                     </image>
                 </ImageView>
                 <HBox alignment="CENTER" spacing="10.0">
@@ -90,6 +90,9 @@
                         <Label text="Price:" />
                         <TextField fx:id="priceField" editable="false" mouseTransparent="true" />
                     </children>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
                 </HBox>
                 <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
                     <children>
