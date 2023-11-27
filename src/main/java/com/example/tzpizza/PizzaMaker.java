@@ -31,7 +31,7 @@ public class PizzaMaker {
                 String[] toppingsArray = commands[5].split(";");
                 ArrayList<Topping> toppings = new ArrayList<Topping>();
                 for(String t: toppingsArray) {
-                    toppings.add(Topping.valueOf(t));
+                    toppings.add(Topping.valueOf(t.replace(' ', '_').toUpperCase()));
                 }
                 pizza = new BuildYourOwn(toppings, sauce, size, extraSauce, extraCheese);
                 break;

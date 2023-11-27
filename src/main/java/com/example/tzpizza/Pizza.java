@@ -1,6 +1,7 @@
 package com.example.tzpizza;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class Pizza {
     protected ArrayList<Topping> toppings;
@@ -14,5 +15,8 @@ public abstract class Pizza {
         if(size.equals(Size.MEDIUM)) price += 2;
         else if(size.equals(Size.LARGE)) price += 4;
         return price;
+    }
+    public ArrayList<Topping> getToppings() {
+        return toppings;
     }
 }

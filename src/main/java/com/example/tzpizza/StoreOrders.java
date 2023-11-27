@@ -3,15 +3,22 @@ package com.example.tzpizza;
 import java.util.ArrayList;
 
 public class StoreOrders {
-    private static int nextOrderNumber;
+    private static int currentOrderNumber;
     private ArrayList<Order> orders;
     public StoreOrders() {
-        nextOrderNumber = 1;
         orders = new ArrayList<Order>();
+        currentOrderNumber = 0;
+        newOrder();
     }
     public void newOrder() {
-        Order order = new Order(nextOrderNumber);
-        nextOrderNumber++;
+        currentOrderNumber++;
+        Order order = new Order(currentOrderNumber);
         orders.add(order);
+    }
+    public void addPizza(Pizza pizza) {
+        orders.get(currentOrderNumber-1).addPizza(pizza);
+    }
+    public int getCurrentOrderNumber() {
+        return currentOrderNumber;
     }
 }
