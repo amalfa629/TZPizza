@@ -18,28 +18,68 @@ import java.util.ResourceBundle;
  */
 public class MainMenuController implements Initializable {
     private StoreOrders storeOrders;
+
+    /**
+     initializes the store
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         storeOrders = new StoreOrders();
     }
+
+    /**
+     adds a pizza to the store orders
+     @param pizza pizza being added to the store orders
+     */
     public void addPizza(Pizza pizza) {
         storeOrders.addPizza(pizza);
     }
+
+    /**
+     gets the current order number
+     @return returns the current order number as an int
+     */
     public int getCurrentOrderNumber() {
         return storeOrders.getCurrentOrderNumber();
     }
+
+    /**
+     gets a specific order
+     @param orderNumber the number of the order
+     @return returns the order that has that number
+     */
     public Order getOrder(int orderNumber) {
         return storeOrders.getOrder(orderNumber);
     }
+
+    /**
+     returns all the orders
+     @return returns all the orders as an ArrayList
+     */
     public ArrayList<Order> getOrders() {
         return storeOrders.getOrders();
     }
+
+    /**
+     adds an order to the store orders
+     */
     public void placeOrder() {
         storeOrders.newOrder();
     }
+
+    /**
+     cancels an order
+     @param orderNumber the order number of the order being cancelled
+     */
     public void cancelOrder(int orderNumber) {
         storeOrders.cancelOrder(orderNumber);
     }
+
+    /**
+     exports all the orders to a text file
+     */
     public void export() {
         storeOrders.export();
     }
