@@ -35,7 +35,7 @@ public class MainMenuController implements Initializable {
         buildYourOwnController.setMainMenuController(this);
     }
     @FXML
-    protected void onSpecialtyButtonClick() throws IOException{
+    protected void onSpecialtyButtonClick() throws IOException {
         Stage specialtyPizzaStage = new Stage();
         specialtyPizzaStage.setTitle("Specialty Pizzas");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("specialtypizza-view.fxml"));
@@ -46,9 +46,25 @@ public class MainMenuController implements Initializable {
         specialtyPizzaController.setMainMenuController(this);
     }
     @FXML
-    protected void onCurrentOrderButtonClick() {
+    protected void onCurrentOrderButtonClick() throws IOException {
+        Stage currentOrderStage = new Stage();
+        currentOrderStage.setTitle("Current Order");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("currentorder-view.fxml"));
+        Scene scene = new Scene(loader.load(), 960, 720);
+        CurrentOrderController currentOrderController = loader.getController();
+        currentOrderStage.setScene(scene);
+        currentOrderStage.show();
+        currentOrderController.setMainMenuController(this);
     }
     @FXML
-    protected void onAllOrdersClick() {
+    protected void onAllOrdersClick() throws IOException {
+        Stage storeOrdersStage = new Stage();
+        storeOrdersStage.setTitle("Current Order");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("storeorders-view.fxml"));
+        Scene scene = new Scene(loader.load(), 960, 720);
+        StoreOrdersController storeOrderSController = loader.getController();
+        storeOrdersStage.setScene(scene);
+        storeOrdersStage.show();
+        storeOrderSController.setMainMenuController(this);
     }
 }

@@ -1,16 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.tzpizza.CurrentOrderController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox alignment="TOP_CENTER" style="-fx-background-color: GRAY;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tzpizza.CurrentOrderController">
+    <children>
+        <HBox alignment="CENTER" style="-fx-background-color: black;">
+            <children>
+                <ImageView fitHeight="120.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@PizzaIcon.png" />
+                    </image>
+                </ImageView>
+                <Label text="T &amp; Z's Pizza" textFill="WHITE">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="34.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+            <children>
+                <Label text="Specialty Pizza">
+                    <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@build.png" />
+                    </image>
+                </ImageView>
+                <HBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <Label text="Size:" />
+                        <RadioButton mnemonicParsing="false" onAction="#onRadioButtonClick" text="Small">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="sizes" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" onAction="#onRadioButtonClick" text="Medium" toggleGroup="$sizes" />
+                        <RadioButton mnemonicParsing="false" onAction="#onRadioButtonClick" text="Large" toggleGroup="$sizes" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="extraSauceCheck" mnemonicParsing="false" text="Extra Sauce?" />
+                        <CheckBox fx:id="extraCheeseCheck" mnemonicParsing="false" text="Extra Cheese?" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <ComboBox fx:id="typePizza" onAction="#onTypePizzaButtonClick" prefWidth="150.0" promptText="Type of Pizza" />
+                <HBox VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Toppings:" />
+                                <ListView fx:id="toppings" />
+                            </children>
+                        </VBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <HBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Price:" />
+                        <TextField fx:id="priceField" editable="false" mouseTransparent="true" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#onAddToOrderButtonClicked" text="Add to Order" />
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+    </children>
 </VBox>
