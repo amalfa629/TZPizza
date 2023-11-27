@@ -39,8 +39,8 @@ public class MainMenuController implements Initializable {
         Stage specialtyPizzaStage = new Stage();
         specialtyPizzaStage.setTitle("Specialty Pizzas");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("specialtypizza-view.fxml"));
-        SpecialtyPizzaController specialtyPizzaController = loader.getController();
         Scene scene = new Scene(loader.load(), 960, 720);
+        SpecialtyPizzaController specialtyPizzaController = loader.getController();
         specialtyPizzaStage.setScene(scene);
         specialtyPizzaStage.show();
         specialtyPizzaController.setMainMenuController(this);

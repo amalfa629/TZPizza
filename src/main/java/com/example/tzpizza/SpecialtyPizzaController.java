@@ -47,9 +47,11 @@ public class SpecialtyPizzaController implements Initializable {
     }
     @FXML
     protected void onTypePizzaButtonClick() {
+        toppings.getItems().clear();
         for(Topping t: PizzaMaker.createPizza(typePizza.getValue() + ",SMALL,true,true").getToppings()) {
             toppings.getItems().add(t.getName());
         }
+        setPrice();
     }
     @FXML
     protected void onAddToOrderButtonClicked(ActionEvent event) {
