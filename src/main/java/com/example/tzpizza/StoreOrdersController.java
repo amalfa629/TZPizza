@@ -6,6 +6,10 @@ import javafx.scene.control.*;
 
 import java.util.ArrayList;
 
+/**
+ a controller for the StoreOrders page in the GUI
+ @author Tyler Amalfa, Zafar Khan
+ */
 public class StoreOrdersController {
     private MainMenuController mainMenuController;
     @FXML
@@ -14,10 +18,19 @@ public class StoreOrdersController {
     private ListView<String> pizzaList;
     @FXML
     private TextField total;
+
+    /**
+     creates a reference to the main menu controller which contains the store
+     * @param mainMenuController
+     */
     public void setMainMenuController(MainMenuController mainMenuController) {
         this.mainMenuController = mainMenuController;
         displayOrders();
     }
+
+    /**
+     creates a dropdown menu with all the order numbers
+     */
     public void displayOrders() {
         orderNumber.getItems().clear();
         pizzaList.getItems().clear();
@@ -37,6 +50,11 @@ public class StoreOrdersController {
             orderNumber.setItems(FXCollections.observableArrayList(orderNums));
         }
     }
+
+    /**
+     displays an order selected from the dropdown menu
+     @param orderNum the number of the order
+     */
     public void displayOrder(int orderNum) {
         pizzaList.getItems().clear();
         Order order = mainMenuController.getOrder(orderNum);
@@ -45,10 +63,18 @@ public class StoreOrdersController {
         }
         total.setText("$" + String.format("%.2f", order.getTotal()));
     }
+
+    /**
+     displays the order when the number was clicked
+     */
     @FXML
     protected void onOrderNumberButtonClicked() {
         if(orderNumber.getValue() != null) displayOrder(orderNumber.getValue());
     }
+
+    /**
+     cancels the selected order
+     */
     @FXML
     protected void onCancelButtonClicked() {
         if(orderNumber.getValue() != null) {
@@ -56,6 +82,10 @@ public class StoreOrdersController {
             displayOrders();
         }
     }
+
+    /**
+     exports the ArrayList of orders to a text file
+     */
     @FXML
     protected void onExportButtonClicked() {
         mainMenuController.export();

@@ -2,7 +2,16 @@ package com.example.tzpizza;
 
 import java.util.ArrayList;
 
+/**
+ a pizza maker class that allows for none of the pizza subclasses to be referenced outside of this class
+ @author Tyler Amalfa, Zafar Khan
+ */
 public class PizzaMaker {
+    /**
+     creates a pizza from a pizza type
+     @param pizzaType the type of pizza being created
+     @return returns the newly created pizza
+     */
     public static Pizza createPizza(String pizzaType) {
         Pizza pizza = null;
         String[] commands = pizzaType.split(",");

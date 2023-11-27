@@ -1,5 +1,9 @@
 package com.example.tzpizza;
 
+/**
+ an enumerated class for the different types of toppings
+ @author Tyler Amalfa, Zafar Khan
+ */
 public enum Topping {
     BACON("Bacon"),
     BEEF("Beef"),
@@ -18,6 +22,11 @@ public enum Topping {
     Topping(String name) {
         this.name = name;
     }
+
+    /**
+     returns the name of the topping
+     @return returns the name of the topping as a String
+     */
     public String getName() {
         return name;
     }
