@@ -10,6 +10,10 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ a controller for the current order page in the GUI
+ @author Tyler Amalfa, Zafar Khan
+ */
 public class CurrentOrderController {
     private MainMenuController mainMenuController;
     @FXML
@@ -22,11 +26,20 @@ public class CurrentOrderController {
     private TextField NJStateTax;
     @FXML
     private TextField total;
+
+    /**
+     creates a reference to the main menu controller which contains the store
+     * @param mainMenuController
+     */
     public void setMainMenuController(MainMenuController mainMenuController) {
         this.mainMenuController = mainMenuController;
         orderNumber.setText(Integer.toString(mainMenuController.getCurrentOrderNumber()));
         setPizzaList();
     }
+
+    /**
+     lists the item in the order and their prices
+     */
     private void setPizzaList() {
         pizzaList.getItems().clear();
         Order order = mainMenuController.getOrder(mainMenuController.getCurrentOrderNumber());
@@ -35,6 +48,10 @@ public class CurrentOrderController {
         NJStateTax.setText("$" + String.format("%.2f", order.getNJStateTax()));
         total.setText("$" + String.format("%.2f", order.getTotal()));
     }
+
+    /**
+     removes a pizza from the order
+     */
     @FXML
     protected void onRemoveButtonClicked() {
         if(pizzaList.getSelectionModel().getSelectedItem() != null) {
@@ -43,6 +60,11 @@ public class CurrentOrderController {
             setPizzaList();
         }
     }
+
+    /**
+     adds the order to the store orders
+     @param event
+     */
     @FXML
     protected void onPlaceOrderButtonClicked(ActionEvent event) {
         int orderNum = mainMenuController.getCurrentOrderNumber();

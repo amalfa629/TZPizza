@@ -12,7 +12,7 @@ public enum Topping {
     GREEN_PEPPER("Green Pepper"),
     HAM("Ham"),
     MUSHROOM("Mushroom"),
-    ONION("Onions"),
+    ONION("Onion"),
     PEPPERONI("Pepperoni"),
     PINEAPPLE("Pineapple"),
     SAUSAGE("Sausage"),

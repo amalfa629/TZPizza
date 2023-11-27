@@ -12,6 +12,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ controller for the main menu
+ @author Tyler Amalfa, Zafar Khan
+ */
 public class MainMenuController implements Initializable {
     private StoreOrders storeOrders;
     @Override
@@ -39,6 +43,11 @@ public class MainMenuController implements Initializable {
     public void export() {
         storeOrders.export();
     }
+
+    /**
+     opens the build your own pizza menu from the main menu
+     @throws IOException
+     */
     @FXML
     protected void onBuildYourOwnButtonClick() throws IOException {
         Stage buildYourOwnStage = new Stage();
@@ -50,6 +59,11 @@ public class MainMenuController implements Initializable {
         buildYourOwnStage.show();
         buildYourOwnController.setMainMenuController(this);
     }
+
+    /**
+     opens the specialty pizza menu from the main menu
+     @throws IOException
+     */
     @FXML
     protected void onSpecialtyButtonClick() throws IOException {
         Stage specialtyPizzaStage = new Stage();
@@ -61,6 +75,11 @@ public class MainMenuController implements Initializable {
         specialtyPizzaStage.show();
         specialtyPizzaController.setMainMenuController(this);
     }
+
+    /**
+     opens the current order from the main menu
+     @throws IOException
+     */
     @FXML
     protected void onCurrentOrderButtonClick() throws IOException {
         Stage currentOrderStage = new Stage();
@@ -72,6 +91,11 @@ public class MainMenuController implements Initializable {
         currentOrderStage.show();
         currentOrderController.setMainMenuController(this);
     }
+
+    /**
+     opens all the store orders
+     @throws IOException
+     */
     @FXML
     protected void onAllOrdersClick() throws IOException {
         Stage storeOrdersStage = new Stage();

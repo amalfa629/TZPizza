@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 /**
  creates an ArrayList that keeps track of the number of orders and what the orders are
+ @author Tyler Amalfa, Zafar Khan
  */
 public class StoreOrders {
     private static int currentOrderNumber;
